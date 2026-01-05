@@ -1,0 +1,47 @@
+{
+  "name": "@onecoach/lib-copilot-framework",
+  "version": "1.0.0",
+  "description": "Copilot Framework - Agentic tool factories and utilities for AI-driven CRUD operations",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "zod": "^3.20.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "copilot",
+    "mcp",
+    "ai",
+    "agentic",
+    "crud",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onecoach/lib-copilot-framework"
+  },
+  "license": "MIT"
+}
