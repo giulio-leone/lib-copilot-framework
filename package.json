@@ -12,11 +12,10 @@
     "clean": "rm -rf dist"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
-    "zod": "4.3.4"
+    "typescript": "^5.4.0"
   },
   "peerDependencies": {
-    "zod": ">=4.0.0"
+    "zod": "4.3.4"
   },
   "exports": {
     ".": {
