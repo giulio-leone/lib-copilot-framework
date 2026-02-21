@@ -1,19 +1,60 @@
+# Build outputs
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
 # Dependencies
 node_modules/
+package-lock.json
+yarn.lock
 
-# Build output
-dist/
+# Next.js
+.next/
+out/
+
+# Testing
+coverage/
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Cache
+.cache/
+.eslintcache
 
 # IDE
-.idea/
 .vscode/
+.idea/
 *.swp
 *.swo
+*~
 
 # OS
 .DS_Store
+._*
 Thumbs.db
 
-# TypeScript
-*.tsbuildinfo
-*.log
+# Temporary
+tmp/
+temp/
+*.tmp
+artifacts/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Misc
+.vercel/
+.expo/
+expo-env.d.ts

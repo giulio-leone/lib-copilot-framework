@@ -26,9 +26,7 @@ import type {
   WorkoutProgram,
   WorkoutWeek,
 } from '@onecoach/types';
-import { Prisma } from '@prisma/client';
-
-import { createId } from '@onecoach/lib-shared';
+import { createId, toPrismaJsonValue, toNullablePrismaJsonValue } from '@onecoach/lib-shared';
 
 /**
  * Modified nutrition day data structure (from AI agent)
@@ -167,13 +165,13 @@ export class ModificationService {
           description: planToUpdate.description,
           goals: planToUpdate.goals,
           durationWeeks: planToUpdate.durationWeeks,
-          targetMacros: planToUpdate.targetMacros as unknown as Prisma.InputJsonValue,
-          weeks: planToUpdate.weeks as unknown as Prisma.InputJsonValue,
+          targetMacros: toPrismaJsonValue(planToUpdate.targetMacros as Record<string, unknown>),
+          weeks: toPrismaJsonValue(planToUpdate.weeks as unknown[]),
           restrictions: planToUpdate.restrictions,
           preferences: planToUpdate.preferences,
           status: planToUpdate.status,
           metadata:
-            (planToUpdate.metadata as unknown as Prisma.InputJsonValue | null) ?? Prisma.JsonNull,
+            toNullablePrismaJsonValue(planToUpdate.metadata as Record<string, unknown> | null | undefined),
           createdBy: userId,
         },
       });
@@ -185,12 +183,12 @@ export class ModificationService {
           description: persistenceData.description,
           goals: persistenceData.goals,
           durationWeeks: persistenceData.durationWeeks,
-          targetMacros: persistenceData.targetMacros as unknown as Prisma.InputJsonValue,
-          weeks: persistenceData.weeks as unknown as Prisma.InputJsonValue,
+          targetMacros: toPrismaJsonValue(persistenceData.targetMacros as Record<string, unknown>),
+          weeks: toPrismaJsonValue(persistenceData.weeks as unknown[]),
           restrictions: persistenceData.restrictions,
           preferences: persistenceData.preferences,
           status: persistenceData.status,
-          metadata: persistenceData.metadata as unknown as Prisma.NullableJsonNullValueInput,
+          metadata: toNullablePrismaJsonValue(persistenceData.metadata as Record<string, unknown> | null | undefined),
           version: { increment: 1 },
         },
       });
@@ -287,10 +285,9 @@ export class ModificationService {
           durationWeeks: programToUpdate.durationWeeks,
           goals: programToUpdate.goals,
           status: programToUpdate.status,
-          weeks: programToUpdate.weeks as unknown as Prisma.InputJsonValue,
+          weeks: toPrismaJsonValue(programToUpdate.weeks as unknown[]),
           metadata:
-            (programToUpdate.metadata as unknown as Prisma.InputJsonValue | null) ??
-            Prisma.JsonNull,
+            toNullablePrismaJsonValue(programToUpdate.metadata as Record<string, unknown> | null | undefined),
           createdBy: userId,
         },
       });
@@ -303,9 +300,9 @@ export class ModificationService {
           difficulty: persistenceData.difficulty,
           durationWeeks: persistenceData.durationWeeks,
           goals: persistenceData.goals,
-          weeks: persistenceData.weeks as unknown as Prisma.InputJsonValue,
+          weeks: toPrismaJsonValue(persistenceData.weeks as unknown[]),
           status: persistenceData.status,
-          metadata: persistenceData.metadata as unknown as Prisma.NullableJsonNullValueInput,
+          metadata: toNullablePrismaJsonValue(persistenceData.metadata as Record<string, unknown> | null | undefined),
           version: { increment: 1 },
         },
       });

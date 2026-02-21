@@ -198,7 +198,7 @@ export async function recalculateMacrosForDay(
 
     // Validate and use output
     // NutritionDaySchema ensures structure, but we cast to NutritionDay generic type
-    const recalculatedDayData = completeObject as unknown as NutritionDay;
+    const recalculatedDayData = completeObject as NutritionDay;
 
     // Normalize to ensure safe types if needed
     // Create temp plan structure for normalization

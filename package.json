@@ -20,7 +20,7 @@
     "@onecoach/one-workout": "workspace:*",
     "@onecoach/schemas": "workspace:*",
     "@prisma/client": "^7.2.0",
-    "ai": "6.0.19",
+    "ai": "6.0.77",
     "@onecoach/types-core": "workspace:*",
     "@onecoach/types-workout": "workspace:*",
     "@onecoach/types-nutrition": "workspace:*",

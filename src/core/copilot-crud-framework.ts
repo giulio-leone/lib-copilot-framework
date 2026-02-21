@@ -109,7 +109,7 @@ export function createCrudTool<TOperations extends readonly CrudOperation[]>(
   } = config;
 
   // Build the operation schema
-  const operationSchema = z.enum(operations as unknown as [string, ...string[]]);
+  const operationSchema = z.enum(operations as [string, ...string[]]);
 
   // Build parameters schema - use a simple record for additional params
   const schemaShape: Record<string, z.ZodTypeAny> = {
